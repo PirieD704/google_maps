@@ -1,0 +1,13 @@
+/* line 25, ../../compass/sass/styles.scss */
+#map {
+  height: 99vh;
+  width: 75%;
+  float: left;
+}
+
+/* line 31, ../../compass/sass/styles.scss */
+.theTable {
+  width: 25%;
+  height: 99vh;
+  overflow: scroll;
+}

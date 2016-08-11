@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="cityRankApp" lang="en">
+<head>
+
+
+	<meta charset="UTF-8">
+	<title>City Rank</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+	<script type="text/javascript" src="cityRank.js"></script>
+
+</head>
+<body ng-controller="cityRankController">
+	
+
+
+	<div class="container">
+		<div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Year Rank</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Year Estimate</th>
+						<th>Last Census</th>
+						<th>Change</th>
+						<th>Land Area</th>
+						<th>Land Area in KM</th>
+						<th>Last Pop Density</th>
+						<th>Last Pop Density in KM</th>
+						<th>Lat/Lon</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in cities">
+						<td>{{item.yearRank}}</td>
+						<td>{{item.city}}</td>
+						<td>{{item.state}}</td>
+						<td>{{item.yearEstimate}}</td>
+						<td>{{item.lastCensus}}</td>
+						<td>{{item.change}}</td>
+						<td>{{item.landArea}}</td>
+						<td>{{item.landAreaInKm}}</td>
+						<td>{{item.lastPopDensity}}</td>
+						<td>{{item.lastPopDensityInKM}}</td>
+						<td>{{item.latLon}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
+</body>
+</html>
