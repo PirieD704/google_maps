@@ -20,7 +20,9 @@
 // @import "views/payment";
 // @import "views/account";
 
-
+#list-window{
+	margin-top: 5px;
+}
 
 #map{
 	height: 99vh;
@@ -30,6 +32,22 @@
 
 .theTable{
 	width: 25%;
-	height: 99vh;
+	height: 90vh;
 	overflow: scroll;
 }
+
+.top-bar{
+	display: inline-block;
+}
+
+.scrollable-menu{
+	height: auto;
+	max-height: 400px;
+	overflow-x: hidden;
+}
+
+.update-button{
+	border-radius: 8%;
+	background-color: #e8e8e8;
+}
+

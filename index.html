@@ -6,9 +6,15 @@
 	<meta charset="UTF-8">
 	<title>google maps</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="public/stylesheets/styles.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&v=3.exp&signed_in=true"></script>
@@ -23,36 +29,62 @@
 	<div id="map"></div>
 	
 
-	<div class="theTable">
-		<table class="table table-hover">
-			<thead class="">
-				<th>City</th>
-				<th>State</th>
-				<th>Year Estimate</th>
-				<th>Last Census</th>
-				<th>Change</th>
-				<th>Land Area</th>
-				<th>Land Area in KM</th>
-				<th>Last Pop Density</th>
-				<th>Last Pop Density in KM</th>
-				<th>Lat/Lon</th>
-			</thead>
-			<tbody>
-				<tr ng-repeat="city in cities track by $index">
-					<td><a href="" ng-click="triggerClick($index)">{{city.city}}</a></td>
-					<td>{{city.state}}</td>
-					<td>{{city.yearEstimate}}</td>
-					<td>{{city.lastCensus}}</td>
-					<td>{{city.change}}</td>
-					<td>{{city.landArea}}</td>
-					<td>{{city.landAreaInKm}}</td>
-					<td>{{city.lastPopDensity}}</td>
-					<td>{{city.lastPopDensityInKM}}</td>
-					<td>{{city.latLon}}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
 	
+
+	<div id="list-window">
+		<form ng-submit="updateMarkers()">
+			<div class="top-bar">
+				<div class="dropdown">
+					<input id="filter-input" ng-model="citiesFilter" type="text" placeholder="Type a city">
+					<input class="update-button" type="submit" value="Update">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						{{userPlace}}
+				    	<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="dropdownMenu1">
+				    	<li ng-click="setPlace(place)" ng-repeat="place in placesTypes track by $index"><a href="#">{{place}}</a></li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="theTable">
+				<table class="table table-hover">
+					<thead class="">
+						<th>City</th>
+						<th>State</th>
+						<!-- <th>Population</th> -->
+						<th>Directions</th>
+						<th>Zoom</th>
+<!-- 						<th>Change</th>
+						<th>Land Area</th>
+						<th>Land Area in KM</th>
+						<th>Last Pop Density</th>
+						<th>Last Pop Density in KM</th>
+						<th>Lat/Lon</th> -->
+					</thead>
+					<tbody>
+						<tr ng-repeat="city in (filteredCities = (cities | filter: citiesFilter)) track by $index">
+							<td><a href="" ng-click="triggerClick($index)">{{city.city}}</a></td>
+							<td>{{city.state}}</td>
+							<!-- <td>{{city.yearEstimate}}</td> -->
+							<!-- <td>{{city.lastCensus}}</td>
+							<td>{{city.change}}</td>
+							<td>{{city.landArea}}</td>
+							<td>{{city.landAreaInKm}}</td>
+							<td>{{city.lastPopDensity}}</td>
+							<td>{{city.lastPopDensityInKM}}</td>
+							<td>{{city.latLon}}</td> -->
+							<td><button class="btn btn-primary" type="submit" ng-click="getDirections(city.lat, city.lon)">Get Directions</button></td>
+							<td><button class="btn btn-primary" type="submit" ng-click="zoomToCity(city.lat, city.lon)">Zoom to City</button></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>			
+	</div>
+
+
+
 </body>
 </html>

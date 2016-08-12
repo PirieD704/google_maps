@@ -1,13 +1,36 @@
-/* line 25, ../../compass/sass/styles.scss */
+/* line 23, ../../compass/sass/styles.scss */
+#list-window {
+  margin-top: 5px;
+}
+
+/* line 27, ../../compass/sass/styles.scss */
 #map {
   height: 99vh;
   width: 75%;
   float: left;
 }
 
-/* line 31, ../../compass/sass/styles.scss */
+/* line 33, ../../compass/sass/styles.scss */
 .theTable {
   width: 25%;
-  height: 99vh;
+  height: 90vh;
   overflow: scroll;
+}
+
+/* line 39, ../../compass/sass/styles.scss */
+.top-bar {
+  display: inline-block;
+}
+
+/* line 43, ../../compass/sass/styles.scss */
+.scrollable-menu {
+  height: auto;
+  max-height: 400px;
+  overflow-x: hidden;
+}
+
+/* line 49, ../../compass/sass/styles.scss */
+.update-button {
+  border-radius: 8%;
+  background-color: #e8e8e8;
 }
